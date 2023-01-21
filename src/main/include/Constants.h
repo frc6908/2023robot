@@ -4,16 +4,18 @@
 
 #pragma once
 
-#include <cmath>
+/**
+ * The Constants header provides a convenient place for teams to hold robot-wide
+ * numerical or boolean constants.  This should not be used for any other
+ * purpose.
+ *
+ * It is generally a good idea to place constants into subsystem- or
+ * command-specific namespaces within this header, which can then be used where
+ * they are needed.
+ */
 
-namespace drivetrain {
-    const int kLeftDriveTalonPort = 14;
-    const int kLeftDriveVenomPort = 15;
+namespace OperatorConstants {
 
-    const int kRightDriveTalonPort = 12;
-    const int kRightDriveVenomPort = 13; 
+constexpr int kDriverControllerPort = 0;
 
-    const int kWheelDiameter = 6;
-    
-    const double kDT = 0.02;
-}
+}  // namespace OperatorConstants
