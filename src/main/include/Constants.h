@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <cmath>
+
 /**
  * The Constants header provides a convenient place for teams to hold robot-wide
  * numerical or boolean constants.  This should not be used for any other
@@ -14,8 +16,40 @@
  * they are needed.
  */
 
-namespace OperatorConstants {
+namespace drivetrain {
+    const int kLeftDriveTalonPort = 14;
+    const int kLeftDriveVenomPort = 15;
 
-constexpr int kDriverControllerPort = 0;
+    const int kRightDriveTalonPort = 12;
+    const int kRightDriveVenomPort = 0; 
 
-}  // namespace OperatorConstants
+    const int kWheelDiameter = 6;
+    
+    const double kDT = 0.02;
+}
+
+namespace intake {
+    const int kIntakeTalonPort = 4;
+    const int kBottomFeederVictorPort = 5;
+}
+
+namespace uptake {
+    const int kUptakeVictorPort = 8;
+    const int kTopFeederVictorPort = 11;
+}
+
+namespace shooter {
+    const int kBottomSparkPort = 2;
+    const int kTopSparkPort = 13;
+}
+
+namespace limelight {
+    const double kTargetHeight = 104;
+    const double kCameraHeight = 26;
+    const double kCameraAngle = 45;
+}
+
+namespace oi {
+    const int kDriveJoystickPort = 0; // drive joystick
+    const int kDriveControllerPort = 1; // operator ps5 controller
+}

@@ -8,8 +8,6 @@
 #include <frc2/command/CommandHelper.h>
 
 #include "subsystems/Drivetrain.h"
-#include "subsystems/Uptake.h"
-#include "subsystems/Shooter.h"
 
 /**
  * An example command that uses an example subsystem.
@@ -18,9 +16,9 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class DriveAuton : public frc2::CommandHelper<frc2::CommandBase, DriveAuton> {
+class FlipDrivetrain : public frc2::CommandHelper<frc2::CommandBase, FlipDrivetrain> {
  public:
-  DriveAuton(Drivetrain*,  Shooter*, Uptake*);
+  FlipDrivetrain(Drivetrain*);
 
   void Initialize() override;
 
@@ -31,10 +29,5 @@ class DriveAuton : public frc2::CommandHelper<frc2::CommandBase, DriveAuton> {
   bool IsFinished() override;
 
   private:
-    int t;
     Drivetrain* m_drivetrain;
-    Shooter* m_shooter;
-    Uptake* m_uptake;
-    units::unit_t< units::compound_unit<units::meters, units::inverse<units::seconds>> > topVelocity{50.0};
-    units::unit_t< units::compound_unit<units::meters, units::inverse<units::seconds>> > bottomVelocity{50.0};
 };

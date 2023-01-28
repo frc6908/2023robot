@@ -8,8 +8,8 @@
 #include <frc2/command/CommandHelper.h>
 
 #include "subsystems/Drivetrain.h"
-#include "subsystems/Uptake.h"
 #include "subsystems/Shooter.h"
+#include "subsystems/Limelight.h"
 
 /**
  * An example command that uses an example subsystem.
@@ -18,9 +18,9 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class DriveAuton : public frc2::CommandHelper<frc2::CommandBase, DriveAuton> {
+class PIDRotateAngle : public frc2::CommandHelper<frc2::CommandBase, PIDRotateAngle> {
  public:
-  DriveAuton(Drivetrain*,  Shooter*, Uptake*);
+  PIDRotateAngle(Drivetrain*, Shooter*, Limelight*);
 
   void Initialize() override;
 
@@ -31,10 +31,17 @@ class DriveAuton : public frc2::CommandHelper<frc2::CommandBase, DriveAuton> {
   bool IsFinished() override;
 
   private:
-    int t;
     Drivetrain* m_drivetrain;
     Shooter* m_shooter;
-    Uptake* m_uptake;
-    units::unit_t< units::compound_unit<units::meters, units::inverse<units::seconds>> > topVelocity{50.0};
-    units::unit_t< units::compound_unit<units::meters, units::inverse<units::seconds>> > bottomVelocity{50.0};
+    Limelight* m_limelight;
+
+    double setpoint;
+    double kP = 0.08; // 0.15; // 0.03;// 0.025; // 0.06//0.0825;//0.075;// 0.0875; // 0.09; //0.1; // 0.1125;//0.125; //0.15;
+    double kD = 0.00975; // 0.01;//0.002; //0.011;// 0.009875;// 0.00975;
+    double kI = 0; //0.005;
+    // Use 0.0825 & 0.00975 for drivetrain rotation
+    double previousError;
+    double error;
+    double cumError;
+    double stopAccumulator;
 };
