@@ -21,35 +21,14 @@ namespace drivetrain {
     const int kLeftDriveVenomPort = 15;
 
     const int kRightDriveTalonPort = 12;
-    const int kRightDriveVenomPort = 0; 
+    const int kRightDriveVenomPort = 13; 
 
-    const int kWheelDiameter = 6;
+    const int kWheelDiameter = 6;   //inches
     
     const double kDT = 0.02;
 }
 
-namespace intake {
-    const int kIntakeTalonPort = 4;
-    const int kBottomFeederVictorPort = 5;
-}
-
-namespace uptake {
-    const int kUptakeVictorPort = 8;
-    const int kTopFeederVictorPort = 11;
-}
-
-namespace shooter {
-    const int kBottomSparkPort = 2;
-    const int kTopSparkPort = 13;
-}
-
-namespace limelight {
-    const double kTargetHeight = 104;
-    const double kCameraHeight = 26;
-    const double kCameraAngle = 45;
-}
-
 namespace oi {
-    const int kDriveJoystickPort = 0; // drive joystick
-    const int kDriveControllerPort = 1; // operator ps5 controller
+    const int kDriveJoystickPort = 0;   // drive joystick
+    //const int kDriveControllerPort = 1; // operator ps5 controller
 }

@@ -12,24 +12,13 @@
 #include "subsystems/ExampleSubsystem.h"
 
 #include "subsystems/Drivetrain.h"
-#include "subsystems/Intake.h"
-#include "subsystems/Uptake.h"
-#include "subsystems/Shooter.h"
-#include "subsystems/Limelight.h"
 
 #include "commands/ArcadeDrive.h"
-#include "commands/IntakeBall.h"
-#include "commands/OuttakeBall.h"
-#include "commands/UptakeBall.h"
-#include "commands/Shoot.h"
-#include "commands/SetShoot.h"
 #include "commands/DriveAuton.h"
 #include "commands/FlipDrivetrain.h"
-#include "commands/PIDRotateAngle.h"
 
 #include <frc/Joystick.h>
 #include <frc2/command/button/JoystickButton.h>
-#include <frc/PS4Controller.h>
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -45,22 +34,17 @@ class RobotContainer {
 
  private:
   // The robot's subsystems and commands are defined here...
+  //example things
   ExampleSubsystem m_subsystem;
   ExampleCommand m_autonomousCommand;
 
+  //drivetrain
   Drivetrain m_drivetrain;
- 
+  DriveAuton m_driveAutoCommand{&m_drivetrain /*, &m_shooter, &m_uptake */};
 
-  Intake m_intake;
-  Uptake m_uptake;
-  Shooter m_shooter;
-  Limelight m_limelight;
-  DriveAuton m_driveAutoCommand{&m_drivetrain, &m_shooter, &m_uptake};
-
+  //joystick
   frc::Joystick m_joystick{oi::kDriveJoystickPort};
-  frc::PS4Controller m_controller{oi::kDriveControllerPort};
-
-  
+  //frc::PS4Controller m_controller{oi::kDriveControllerPort};
 
   void ConfigureButtonBindings();
 };

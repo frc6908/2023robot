@@ -4,12 +4,14 @@
 
 #include "commands/DriveAuton.h"
 
-DriveAuton::DriveAuton(Drivetrain* drivetrain, Shooter* shooter, Uptake* uptake)
-    : m_drivetrain{drivetrain}, m_shooter{shooter}, m_uptake{uptake} {
+DriveAuton::DriveAuton(Drivetrain* drivetrain /*, Shooter* shooter, Uptake* uptake */ )
+    : m_drivetrain{drivetrain} /* , m_shooter{shooter}, m_uptake{uptake} */ {
 
     AddRequirements(drivetrain); 
+    /*
     AddRequirements(shooter);
     AddRequirements(uptake);
+    */
 }
 
 void DriveAuton::Initialize() {
@@ -18,6 +20,7 @@ void DriveAuton::Initialize() {
 }
 
 void DriveAuton::Execute() {
+    /*
     if (t <= 500) {
         double tv = this->m_shooter->getTopVelocity();
         double bv = this->m_shooter->getBottomVelocity();
@@ -37,6 +40,7 @@ void DriveAuton::Execute() {
         this->m_shooter->setTopMotorVoltage(ctop + this->m_shooter->getTFF()->Calculate(topVelocity));
         this->m_shooter->setBottomMotorVoltage(cbot + this->m_shooter->getBFF()->Calculate(bottomVelocity));
     }
+    */
     if (t > 500) {
         this->m_drivetrain->setDriveMotors(-0.4, -0.4);
     }
@@ -46,10 +50,12 @@ void DriveAuton::Execute() {
 void DriveAuton::End(bool interrupted) {
     this->m_drivetrain->stop();
     units::voltage::volt_t stopVoltage{0.0};
+    /*
     this->m_shooter->setTopMotorVoltage(stopVoltage);
     this->m_shooter->setBottomMotorVoltage(stopVoltage);
     this->m_uptake->setTopFeederMotor(0);
     this->m_uptake->setUptakeMotor(0);
+    */
 }
 
 bool DriveAuton::IsFinished() {
