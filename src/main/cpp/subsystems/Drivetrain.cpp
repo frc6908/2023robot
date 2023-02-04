@@ -50,16 +50,16 @@ double Drivetrain::getHeadingAsAngle() {
 }
 
 void Drivetrain::resetEncoders() {
-    leftDriveVenom.ResetPosition();
-    rightDriveVenom.ResetPosition();
+    leftEncoder.SetPosition(0.0);
+    rightEncoder.SetPosition(0.0);
 }
 
 double Drivetrain::getLeftEncoderDistance() {
-    return leftDriveVenom.GetPosition();
+    return leftEncoder.GetPosition();
 }
 
 double Drivetrain::getRightEncoderDistance() {
-    return rightDriveVenom.GetPosition();
+    return rightEncoder.GetPosition();
 }
 
 double Drivetrain::venomTicksToInches(double revolutions) {
