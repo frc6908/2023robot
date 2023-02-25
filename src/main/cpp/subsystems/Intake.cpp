@@ -26,3 +26,4 @@ void Intake::stopIntake2() {
 }
 
 void Intake::Periodic() { }
+void Intake::SimulationPeriodic() { }
