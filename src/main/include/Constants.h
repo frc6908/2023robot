@@ -35,3 +35,9 @@ namespace oi {
     const int kDriveJoystickPort = 0;   // drive joystick
     //const int kDriveControllerPort = 1; // operator ps5 controller
 }
+
+namespace intake {
+    // THESE CONSTANTS ARE JUST FILLER CONSTANTS CHANGE THESE LATER
+    const int kIntakeTalonPort1 = 0;
+    const int kIntakeTalonPort2 = 1;
+}
