@@ -49,6 +49,15 @@ double Drivetrain::getHeadingAsAngle() {
     return getHeading().Degrees().value();
 }
 
+frc::Rotation2d Drivetrain::getPitch() {
+    units::degree_t deg{gyro.GetPitch()};
+    return frc::Rotation2d(deg);
+}
+
+double Drivetrain::getPitchAsAngle() {
+    return getHeading().Degrees().value();
+}
+
 void Drivetrain::resetEncoders() {
     leftEncoder.SetPosition(0.0);
     rightEncoder.SetPosition(0.0);

@@ -43,6 +43,10 @@ class Drivetrain : public frc2::SubsystemBase {
 
   double getHeadingAsAngle();
 
+  frc::Rotation2d getPitch();
+
+  double getPitchAsAngle();
+
   void resetEncoders();
 
   double getLeftEncoderDistance();
