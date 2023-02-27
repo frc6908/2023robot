@@ -12,18 +12,19 @@ void Gyro::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Gyro::Execute() { 
-    // basically find pitch angle, and drive backwards/forwards while pitch angle is incorrect.
-    double pitchAngleDegrees = this -> m_drivetrain -> getPitchAsAngle();
-    // move backward (i think)
-    if(pitchAngleDegrees < 0) {
-        // do something to move backward
-
-    }
-    // move forwards
-    else {
-        // do something to move forwards
-        
-    }
+  // basically find pitch angle, and drive backwards/forwards while pitch angle is incorrect.
+  double pitchAngleDegrees = this -> m_drivetrain -> getPitchAsAngle();
+  // move backward (i think)
+  if(pitchAngleDegrees < 0) {
+    // do something to move backward
+    // these speeds are just placeholders currently
+    this->m_drivetrain->setDriveMotors(-1.0, -1.0);
+  } 
+  // move forwards
+  else {
+    // do something to move forwards
+    this->m_drivetrain->setDriveMotors(1.0, 1.0);
+  }
 } 
 
 // Called once the command ends or is interrupted.
