@@ -21,7 +21,7 @@ void Gyro::Execute() {
     this->m_drivetrain->setDriveMotors(-1.0, -1.0);
   } 
   // move forwards
-  else {
+  else if(pitchAngleDegrees > 0) {
     // do something to move forwards
     this->m_drivetrain->setDriveMotors(1.0, 1.0);
   }
