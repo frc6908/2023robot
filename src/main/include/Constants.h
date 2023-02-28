@@ -24,8 +24,7 @@ namespace drivetrain {
 
     const int kRightDriveSparkPort1 = 19;
     const int kRightDriveSparkPort2 = 18;
-    const int kRightDriveSparkPort3 = 17
-    ; 
+    const int kRightDriveSparkPort3 = 17; 
 
     const int kWheelDiameter = 6;   //inches
     
