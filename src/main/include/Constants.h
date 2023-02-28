@@ -44,3 +44,9 @@ namespace gyroBalance {
     // gyro value of 360 is set to correspond to one full revolution
     static constexpr double kVoltsPerDegreePerSecond = 0.0128;
 }
+
+namespace elevator {
+    // INCORRECT PORTS AGAIN WATCH OUT!!!
+    const int kElevatorTalonPort = 0;
+    const int kElevatorVenomPort = 1;
+}

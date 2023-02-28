@@ -12,11 +12,13 @@
 #include "subsystems/ExampleSubsystem.h"
 
 #include "subsystems/Drivetrain.h"
+#include "subsystems/Elevator.h"
 
 #include "commands/ArcadeDrive.h"
 #include "commands/DriveAuton.h"
 #include "commands/FlipDrivetrain.h"
 #include "commands/Gyro.h"
+#include "commands/ElevatorMotion.h"
 
 #include <frc/Joystick.h>
 #include <frc2/command/button/JoystickButton.h>
@@ -42,6 +44,9 @@ class RobotContainer {
   //drivetrain
   Drivetrain m_drivetrain;
   DriveAuton m_driveAutoCommand{&m_drivetrain /*, &m_shooter, &m_uptake */};
+
+  //elevator
+  Elevator m_elevator;
 
   //joystick
   frc::Joystick m_joystick{oi::kDriveJoystickPort};
