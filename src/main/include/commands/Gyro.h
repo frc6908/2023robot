@@ -3,6 +3,12 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
+#include <frc/AnalogGyro.h>
+#include <frc/Joystick.h>
+#include <frc/drive/DifferentialDrive.h>
+
+#include "Constants.h"
+
 #include "subsystems/Drivetrain.h"
 
 class Gyro : public frc2::CommandHelper<frc2::CommandBase, Gyro> {
@@ -16,5 +22,6 @@ class Gyro : public frc2::CommandHelper<frc2::CommandBase, Gyro> {
 
         bool IsFinished() override;
     private:
+        frc::AnalogGyro m_gyro{gyroBalance::kGyroPort};
         Drivetrain* m_drivetrain;
 };

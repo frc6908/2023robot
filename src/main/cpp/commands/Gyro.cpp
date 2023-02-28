@@ -15,15 +15,18 @@ void Gyro::Execute() {
   // basically find pitch angle, and drive backwards/forwards while pitch angle is incorrect.
   double pitchAngleDegrees = this -> m_drivetrain -> getPitchAsAngle();
   // move backward (i think)
-  if(pitchAngleDegrees < 0) {
+  if(pitchAngleDegrees < -5) {
     // do something to move backward
     // these speeds are just placeholders currently
-    this->m_drivetrain->setDriveMotors(-1.0, -1.0);
+    this->m_drivetrain->setDriveMotors(-.1, -.1);
   } 
   // move forwards
-  else if(pitchAngleDegrees > 0) {
+  else if(pitchAngleDegrees > 5) {
     // do something to move forwards
-    this->m_drivetrain->setDriveMotors(1.0, 1.0);
+    this->m_drivetrain->setDriveMotors(.1, .1);
+  }
+  else {
+    this->m_drivetrain->stop();
   }
 } 
 
