@@ -9,11 +9,11 @@
 
 #include "Constants.h"
 
-#include "subsystems/Drivetrain.h"
+#include "subsystems/Arm.h"
 
-class Gyro : public frc2::CommandHelper<frc2::CommandBase, Gyro> {
+class Extend : public frc2::CommandHelper<frc2::CommandBase, Extend> {
     public:
-        Gyro(Drivetrain*);
+        Extend(Arm*, int);
         void Initialize() override;
 
         void Execute() override;
@@ -22,5 +22,7 @@ class Gyro : public frc2::CommandHelper<frc2::CommandBase, Gyro> {
 
         bool IsFinished() override;
     private:
-        Drivetrain* m_drivetrain;
+        Arm* m_arm;
+        int target_mode;
+        int t;
 };
