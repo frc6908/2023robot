@@ -4,26 +4,17 @@
 
 #include "subsystems/Intake.h"
 
-Intake::Intake() {
-  // Implementation of subsystem constructor goes here.
+Intake::Intake() {}
+
+void Intake::setIntakeMotors(double intakeSpeed) {
+  IntakeTalon1.Set(intakeSpeed);
+  IntakeTalon2.Set(-intakeSpeed);
 }
 
-
-void Intake::setIntakeMotor1(double intakeSpeed1) {
-  IntakeTalon1.Set(intakeSpeed1);
-}
-
-void Intake::setIntakeMotor2(double intakeSpeed2) {
-  IntakeTalon2.Set(intakeSpeed2);
-}
-
-void Intake::stopIntake1() {
+void Intake::stop() {
   IntakeTalon1.Set(0);
+  IntakeTalon2.Set(1);
 }
 
-void Intake::stopIntake2() {
-  IntakeTalon2.Set(0);
-}
-
-void Intake::Periodic() { }
-void Intake::SimulationPeriodic() { }
+void Intake::Periodic() {}
+void Intake::SimulationPeriodic() {}

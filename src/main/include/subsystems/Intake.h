@@ -17,13 +17,9 @@ class Intake : public frc2::SubsystemBase {
  public:
   Intake();
 
-  void setIntakeMotor1(double);
+  void setIntakeMotors(double);
 
-  void setIntakeMotor2(double);
-
-  void stopIntake1();
-
-  void stopIntake2();
+  void stop();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.

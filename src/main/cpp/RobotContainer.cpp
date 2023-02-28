@@ -20,7 +20,11 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
   // frc2::JoystickButton flipDriveTrain(&m_joystick, 7);
+  frc2::JoystickButton intake(&m_joystick, 1);
+  frc2::JoystickButton outtake(&m_joystick, 2);
 
+  intake.WhileHeld(new IntakeItem(&m_intake));
+  outtake.WhileHeld(new OuttakeItem(&m_intake));
   //flipDrivetrain.WhenPressed(m_drivetrain.flipDT(), &m_drivetrain);
   // flipDriveTrain.WhenPressed(new FlipDrivetrain(&m_drivetrain));
 }
