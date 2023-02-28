@@ -19,9 +19,10 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
   frc2::JoystickButton flipDriveTrain(&m_joystick, 7);
-
-  //flipDrivetrain.WhenPressed(m_drivetrain.flipDT(), &m_drivetrain);
+  frc2::JoystickButton gyroBalance(&m_joystick, 4);
+  
   flipDriveTrain.WhenPressed(new FlipDrivetrain(&m_drivetrain));
+  gyroBalance.WhileHeld(new Gyro(&m_drivetrain));
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() { 

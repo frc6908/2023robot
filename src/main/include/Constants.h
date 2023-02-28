@@ -35,3 +35,12 @@ namespace oi {
     const int kDriveJoystickPort = 0;   // drive joystick
     //const int kDriveControllerPort = 1; // operator ps5 controller
 }
+
+namespace gyroBalance {
+    const int kGyroPort = 0;
+    static constexpr double kAngleSetpoint = 0.0;
+    static constexpr double kP = 0.005; // proportional turning constant
+    // gyro calibration constant, not final
+    // gyro value of 360 is set to correspond to one full revolution
+    static constexpr double kVoltsPerDegreePerSecond = 0.0128;
+}

@@ -16,6 +16,7 @@
 #include "commands/ArcadeDrive.h"
 #include "commands/DriveAuton.h"
 #include "commands/FlipDrivetrain.h"
+#include "commands/Gyro.h"
 
 #include <frc/Joystick.h>
 #include <frc2/command/button/JoystickButton.h>

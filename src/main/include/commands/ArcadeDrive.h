@@ -29,8 +29,9 @@ class ArcadeDrive : public frc2::CommandHelper<frc2::CommandBase, ArcadeDrive> {
 
   private:
     Drivetrain* m_drivetrain;
-
-    std::function<double()> m_throttle; 
+    
     std::function<double()> m_acceleration;
     std::function<double()> m_turn;
+    std::function<double()> m_throttle; 
+    
 };
