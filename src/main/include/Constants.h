@@ -44,3 +44,10 @@ namespace gyroBalance {
     // gyro value of 360 is set to correspond to one full revolution
     static constexpr double kVoltsPerDegreePerSecond = 0.0128;
 }
+
+namespace limelight {
+    // change kTargetHeight and kCameraHeight
+    const double kTargetHeight = 104;
+    const double kCameraHeight = 26;
+    const double kCameraAngle = 0;
+}
