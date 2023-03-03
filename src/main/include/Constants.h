@@ -18,13 +18,13 @@
 
 namespace drivetrain {
     // Temporary port numbers; change later.
-    const int kLeftDriveSparkPort1 = 1;
-    const int kLeftDriveSparkPort2 = 2;
-    const int kLeftDriveSparkPort3 = 3;
+    const int kLeftDriveSparkPort1 = 19;
+    const int kLeftDriveSparkPort2 = 18;
+    const int kLeftDriveSparkPort3 = 17;
 
-    const int kRightDriveSparkPort1 = 19;
-    const int kRightDriveSparkPort2 = 18;
-    const int kRightDriveSparkPort3 = 17; 
+    const int kRightDriveSparkPort1 = 1;
+    const int kRightDriveSparkPort2 = 2;
+    const int kRightDriveSparkPort3 = 3; 
 
     const int kWheelDiameter = 6;   //inches
     
