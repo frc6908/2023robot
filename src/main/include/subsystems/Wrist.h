@@ -13,6 +13,7 @@
 
 #include <frc/SPI.h>
 #include <AHRS.h>
+#include <frc/Encoder.h>
 
 #include <frc/geometry/Rotation2d.h>
 
@@ -31,6 +32,10 @@ class Wrist : public frc2::SubsystemBase {
 
   void setWristMotor(double);
 
+  double getRotationAngle();
+
+  void resetEncoder();
+
   void stop();
 
   /**
@@ -39,6 +44,10 @@ class Wrist : public frc2::SubsystemBase {
   void Periodic() override;
 
  private:
+    const int ticks_per_revolution = 2048;
+
     ctre::phoenix::motorcontrol::can::WPI_TalonSRX wristTalon{wrist::kWristTalonPort};
     frc::MotorControllerGroup wristMotor{wristTalon};
+
+    frc::Encoder wristEncoder{0, 1};
 };

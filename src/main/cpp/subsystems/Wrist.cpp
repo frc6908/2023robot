@@ -18,4 +18,12 @@ void Wrist::stop() {
     wristMotor.Set(0);
 }
 
+double Wrist::getRotationAngle() {
+    return wristEncoder.GetRaw() * 360.0/ticks_per_revolution;
+}
+
+void Wrist::resetEncoder() {
+    wristEncoder.Reset();
+}
+
 void Wrist::Periodic() {}
