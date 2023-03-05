@@ -28,9 +28,9 @@ class Elbow : public frc2::SubsystemBase {
 
   void stop();
 
-  double getRotationAngle();
+  // double getRotationAngle();
 
-  void resetEncoder();
+  // void resetEncoder();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -45,7 +45,8 @@ class Elbow : public frc2::SubsystemBase {
 
   frc::MotorControllerGroup elbowMotor{elbowTalon};
 
-  frc::Encoder elbowEncoder{0, 1};
+  // frc::Encoder elbowEncoder{0, 1};
+  
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

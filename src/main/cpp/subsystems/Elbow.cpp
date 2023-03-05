@@ -14,12 +14,12 @@ void Elbow::stop() {
     elbowMotor.Set(0);
 }
 
-double Elbow::getRotationAngle() {
-    return elbowEncoder.GetRaw() * 360.0/ticks_per_revolution;
-}
+// double Elbow::getRotationAngle() {
+//     return elbowEncoder.GetRaw() * 360.0/ticks_per_revolution;
+// }
 
-void Elbow::resetEncoder() {
-    elbowEncoder.Reset();
-}
+// void Elbow::resetEncoder() {
+//     elbowEncoder.Reset();
+// }
 
 void Elbow::Periodic() {}

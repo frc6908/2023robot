@@ -11,18 +11,18 @@ void MoveElbow::Initialize() {
 }
 
 void MoveElbow::Execute() {
-    double angle = this->m_elbow->getRotationAngle();
-    if(isRight && current_angle <= 180.0) {
-        this->m_elbow->setElbowMotor(0.1);
-        current_angle = angle;
+    // double angle = this->m_elbow->getRotationAngle();
+    if(isRight) {
+        this->m_elbow->setElbowMotor(0.5);
+        // current_angle = angle;
     }
-    else if(!isRight && current_angle >= -180.0){
-        this->m_elbow->setElbowMotor(-0.1);
-        current_angle = -angle;
+    else if(!isRight){
+        this->m_elbow->setElbowMotor(-0.5);
+        // current_angle = -angle;
     }
-    else {
-        this->m_elbow->stop();
-    }
+    // else {
+    //     this->m_elbow->stop();
+    // }
 }
 
 void MoveElbow::End(bool interrupted) {
