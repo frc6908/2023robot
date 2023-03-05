@@ -16,15 +16,21 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <iostream>
 
+#include "frc/Encoder.h"
+
 #include "Constants.h"
 
 class Elbow : public frc2::SubsystemBase {
  public:
   Elbow();
 
-  void setElbowMotors(double);
+  void setElbowMotor(double);
 
   void stop();
+
+  double getRotationAngle();
+
+  void resetEncoder();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -32,9 +38,14 @@ class Elbow : public frc2::SubsystemBase {
   void Periodic() override;
 
  private:
+  const int ticks_per_revolution = 2048;
+  
+
   ctre::phoenix::motorcontrol::can::WPI_TalonSRX elbowTalon{elbow::kElbowPort};
 
   frc::MotorControllerGroup elbowMotor{elbowTalon};
+
+  frc::Encoder elbowEncoder{0, 1};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };
