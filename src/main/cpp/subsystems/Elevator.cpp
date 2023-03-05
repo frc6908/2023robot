@@ -10,6 +10,19 @@ void Elevator::setElevatorMotors(double speed) {
     elevatorMotors.Set(speed);
 } 
 
+void Elevator::resetEncoder() {
+    elevatorVenom.ResetPosition();
+}
+
+double Elevator::getEncoderPosition() {
+    return elevatorVenom.GetPosition();
+}
+
+double Elevator::getElevatorDistance() {
+    double angle = getEncoderPosition();
+    return M_PI * elevator::kPulleyDiameter * angle / 10.71;  //idk what the 10.71 does, just copied from last year's code
+}
+
 void Elevator::stop() {
     elevatorMotors.Set(0);
 }

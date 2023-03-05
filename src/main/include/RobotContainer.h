@@ -19,6 +19,7 @@
 #include "commands/FlipDrivetrain.h"
 #include "commands/Gyro.h"
 #include "commands/ElevatorMotion.h"
+#include "commands/SetElevatorHeight.h"
 
 #include <frc/Joystick.h>
 #include <frc2/command/button/JoystickButton.h>

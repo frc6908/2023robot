@@ -28,6 +28,12 @@ class Elevator : public frc2::SubsystemBase {
 
         void setElevatorMotors(double);
 
+        void resetEncoder();
+
+        double getEncoderPosition();
+
+        double getElevatorDistance();
+
         void stop();
 
         void Periodic() override;
