@@ -20,15 +20,13 @@ void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
   frc2::JoystickButton flipDriveTrain(&m_joystick, 7);
   frc2::JoystickButton gyroBalance(&m_joystick, 4);
-  frc2::JoystickButton extendShort(&m_joystick, 10);
-  frc2::JoystickButton extendMiddle(&m_joystick, 11);
-  frc2::JoystickButton extendLong(&m_joystick, 12);
+  frc2::JoystickButton extend(&m_joystick, 10);
+  frc2::JoystickButton retract(&m_joystick, 11);
 
   flipDriveTrain.WhenPressed(new FlipDrivetrain(&m_drivetrain));
   gyroBalance.WhileHeld(new Gyro(&m_drivetrain));
-  extendShort.WhenPressed(new Extend(&m_arm, 0));
-  extendMiddle.WhenPressed(new Extend(&m_arm, 1));
-  extendLong.WhenPressed(new Extend(&m_arm, 2));
+  extend.WhileHeld(new Extend(&m_arm, true));
+  retract.WhileHeld(new Extend(&m_arm, false));
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() { 

@@ -31,8 +31,6 @@ class Arm : public frc2::SubsystemBase {
 
         void setTelescopeMotor(double);
 
-        void extension(int);
-
         void stop();
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -40,8 +38,6 @@ class Arm : public frc2::SubsystemBase {
         void Periodic() override;
 
     private:
-        int currentMode = 0;
-
         ctre::phoenix::motorcontrol::can::WPI_TalonSRX telescopeTalon{arm::kTelescopeTalonPort};
 
         frc::MotorControllerGroup telescopeMotor{telescopeTalon};

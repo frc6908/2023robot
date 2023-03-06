@@ -2,23 +2,21 @@
 #include <frc/MathUtil.h>
 #include <cmath>
 
-Extend::Extend(Arm* arm, int m) : m_arm{arm}, target_mode{m} {
+Extend::Extend(Arm* arm, bool ext) : m_arm{arm}, isExtend{ext} {
     AddRequirements(arm);    
 }
 
 void Extend::Initialize() {
-    t = 0;
     this->m_arm->stop();
 }
 
 void Extend::Execute() {
-    if(t <= 100) {
-        this->m_arm->extension(target_mode);
+    if(isExtend) {
+        this->m_arm->setTelescopeMotor(0.3);
     }
     else {
-        this->m_arm->stop();
+        this->m_arm->setTelescopeMotor(-0.3);
     }
-    t++;
 }
 
 void Extend::End(bool interrupted) {

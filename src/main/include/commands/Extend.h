@@ -13,7 +13,7 @@
 
 class Extend : public frc2::CommandHelper<frc2::CommandBase, Extend> {
     public:
-        Extend(Arm*, int);
+        Extend(Arm*, bool);
         void Initialize() override;
 
         void Execute() override;
@@ -23,6 +23,5 @@ class Extend : public frc2::CommandHelper<frc2::CommandBase, Extend> {
         bool IsFinished() override;
     private:
         Arm* m_arm;
-        int target_mode;
-        int t;
+        bool isExtend;
 };
