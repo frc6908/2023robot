@@ -7,27 +7,18 @@ Gyro::Gyro(Drivetrain* drivetrain) : m_drivetrain{drivetrain} {
 }
 
 void Gyro::Initialize() {
-  this->m_drivetrain->stop();
+  cumError = 0;
+  prevError = 0;
+  error = 0;
 }
 
-// Called repeatedly when this Command is scheduled to run
 void Gyro::Execute() { 
-  // basically find pitch angle, and drive backwards/forwards while pitch angle is incorrect.
-  double pitchAngleDegrees = this -> m_drivetrain -> getPitchAsAngle();
-  // move backward (i think)
-  if(pitchAngleDegrees < -5) {
-    // do something to move backward
-    // these speeds are just placeholders currently
-    this->m_drivetrain->setDriveMotors(-.1, -.1);
-  } 
-  // move forwards
-  else if(pitchAngleDegrees > 5) {
-    // do something to move forwards
-    this->m_drivetrain->setDriveMotors(.1, .1);
-  }
-  else {
-    this->m_drivetrain->stop();
-  }
+  double error = this -> m_drivetrain -> getPitchAsAngle();
+  error = error * drivetrain::kDT;
+  cumError = error * drivetrain::kDT;
+  double output = (kP * error) + (kD * (error - prevError) / drivetrain::kDT) + (kI * cumError);
+  this->m_drivetrain->arcadeDrive(0, output);
+  prevError = error;
 } 
 
 // Called once the command ends or is interrupted.

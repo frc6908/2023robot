@@ -24,4 +24,10 @@ class Gyro : public frc2::CommandHelper<frc2::CommandBase, Gyro> {
     private:
         frc::AnalogGyro m_gyro{gyroBalance::kGyroPort};
         Drivetrain* m_drivetrain;
+        double error = 0;
+        double cumError = 0;
+        double prevError = 0;
+        double kP = 0.08;
+        double kD = 0.00975;
+        double kI = 0;
 };
