@@ -45,6 +45,14 @@ namespace gyroBalance {
     static constexpr double kVoltsPerDegreePerSecond = 0.0128;
 }
 
+namespace elevator {
+    // INCORRECT PORTS AGAIN WATCH OUT!!!
+    const int kElevatorTalonPort = 0;
+    const int kElevatorVenomPort = 1;
+
+    const double kPulleyDiameter = 1.5;  //inches
+}
+
 namespace elbow {
-    const int kElbowPort = 1;
+    const int kElbowPort = 12;
 }
