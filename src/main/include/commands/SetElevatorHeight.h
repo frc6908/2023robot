@@ -31,9 +31,9 @@ class SetElevatorHeight : public frc2::CommandHelper<frc2::CommandBase, SetEleva
   private:
     Elevator* m_elevator;
     int stage;
-    double currentHeight = 0;
+    double currentHeight = 11;
     
-    const int lowStageHeight = 0; //height inches
+    const int lowStageHeight = 10; //height inches
     const int midStageHeight = 36;
     const int highStageHeight = 48;
     const int playerHeight = 39;
