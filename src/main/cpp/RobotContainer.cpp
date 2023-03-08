@@ -18,26 +18,34 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
+  //mapping button numbers
   frc2::JoystickButton flipDriveTrain(&m_joystick, 7);
 
-  frc2::JoystickButton gyroBalance(&m_joystick, 8);
+  frc2::JoystickButton gyroBalance(&m_joystick,4);
 
   //manual move elevator
   frc2::JoystickButton elevatorUp(&m_joystick, 3);
   frc2::JoystickButton elevatorDown(&m_joystick, 5);
 
   //preset elevator stages
-  frc2::JoystickButton elevatorUpHalf(&m_joystick,4);
-  frc2::JoystickButton elevatorDownHalf(&m_joystick,6);
+  frc2::JoystickButton elevatorLowHeight(&m_joystick,12);
+  frc2::JoystickButton elevatorMidHeight(&m_joystick,10);
+  frc2::JoystickButton elevatorHighHeight(&m_joystick,11);
+  frc2::JoystickButton elevatorPlayerHeight(&m_joystick,9);
 
+
+
+  //maping button functions
   flipDriveTrain.WhenPressed(new FlipDrivetrain(&m_drivetrain));
   gyroBalance.WhileHeld(new Gyro(&m_drivetrain));
 
   elevatorUp.WhileHeld(new ElevatorMotion(&m_elevator, true));
   elevatorDown.WhileHeld(new ElevatorMotion(&m_elevator, false));
   
-  elevatorUpHalf.WhenPressed(new SetElevatorHeight(&m_elevator, true));
-  elevatorDownHalf.WhenPressed(new SetElevatorHeight(&m_elevator, false));
+  elevatorLowHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 0));
+  elevatorMidHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 1));
+  elevatorHighHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 2));
+  elevatorPlayerHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 3));
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() { 
