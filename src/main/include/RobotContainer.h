@@ -14,6 +14,7 @@
 #include "subsystems/Drivetrain.h"
 #include "subsystems/Arm.h"
 #include "subsystems/Elevator.h"
+#include "subsystems/Elbow.h"
 
 #include "commands/ArcadeDrive.h"
 #include "commands/DriveAuton.h"
@@ -21,6 +22,7 @@
 #include "commands/Gyro.h"
 #include "commands/Extend.h"
 #include "commands/ElevatorMotion.h"
+#include "commands/MoveElbow.h"
 
 #include <frc/Joystick.h>
 #include <frc2/command/button/JoystickButton.h>
@@ -52,6 +54,9 @@ class RobotContainer {
 
   //elevator
   Elevator m_elevator;
+
+  //Elbow
+  Elbow m_elbow;
 
   //joystick
   frc::Joystick m_joystick{oi::kDriveJoystickPort};

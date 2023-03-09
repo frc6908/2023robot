@@ -17,7 +17,7 @@
  */
 class MoveElbow : public frc2::CommandHelper<frc2::CommandBase, MoveElbow> {
  public:
-  MoveElbow(Elbow*);
+  MoveElbow(Elbow*, bool);
 
   void Initialize() override;
 
@@ -29,4 +29,6 @@ class MoveElbow : public frc2::CommandHelper<frc2::CommandBase, MoveElbow> {
 
   private:
     Elbow* m_elbow;
+    bool isRight;
+    double current_angle = 0;
 };
