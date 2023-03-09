@@ -72,3 +72,10 @@ namespace intake {
     const int kIntakeTalonPort1 = 0;
     const int kIntakeTalonPort2 = 1;
 }
+
+namespace limelight {
+    // change kTargetHeight and kCameraHeight
+    const double kTargetHeight = 104;
+    const double kCameraHeight = 26;
+    const double kCameraAngle = 0;
+}
