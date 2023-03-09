@@ -16,6 +16,7 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   ));
 }
 
+// change button bindings LATER
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
   frc2::JoystickButton flipDriveTrain(&m_joystick, 7);
@@ -27,6 +28,9 @@ void RobotContainer::ConfigureButtonBindings() {
   frc2::JoystickButton retract(&m_joystick, 11);
   frc2::JoystickButton elevatorUp(&m_joystick, 3);
   frc2::JoystickButton elevatorDown(&m_joystick, 5);
+  frc2::JoystickButton intake(&m_joystick, 1);    
+  frc2::JoystickButton outtake(&m_joystick, 2);
+
 
   elbowRight.WhileHeld(new MoveElbow(&m_elbow, true));
   elbowLeft.WhileHeld(new MoveElbow(&m_elbow, false));
@@ -35,8 +39,9 @@ void RobotContainer::ConfigureButtonBindings() {
   extend.WhileHeld(new Extend(&m_arm, true));
   retract.WhileHeld(new Extend(&m_arm, false));
   elevatorUp.WhileHeld(new ElevatorMotion(&m_elevator, true));
-  elevatorDown.WhileHeld(new ElevatorMotion(&m_elevator, false));
-  
+  elevatorDown.WhileHeld(new ElevatorMotion(&m_elevator, false));  
+  intake.WhileHeld(new IntakeItem(&m_intake));
+  outtake.WhileHeld(new OuttakeItem(&m_intake));
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() { 

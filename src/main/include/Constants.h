@@ -67,6 +67,8 @@ namespace wrist {
     const int kWristTalonPort = 13; 
 }
 
-namespace elbow {
-    const int kElbowPort = 12;
+namespace intake {
+    // THESE CONSTANTS ARE JUST FILLER CONSTANTS CHANGE THESE LATER
+    const int kIntakeTalonPort1 = 0;
+    const int kIntakeTalonPort2 = 1;
 }
