@@ -44,3 +44,9 @@ namespace gyroBalance {
     // gyro value of 360 is set to correspond to one full revolution
     static constexpr double kVoltsPerDegreePerSecond = 0.0128;
 }
+
+namespace arm {
+    // Temporary port numbers, change later
+    const int kTelescopeTalonPort = 5; 
+
+}
