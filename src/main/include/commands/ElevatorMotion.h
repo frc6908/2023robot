@@ -18,8 +18,8 @@
  */
 class ElevatorMotion : public frc2::CommandHelper<frc2::CommandBase, ElevatorMotion> {
  public:
-  ElevatorMotion(Elevator*, bool);
-
+  ElevatorMotion(Elevator*, bool, double);
+  
   void Initialize() override;
 
   void Execute() override;
@@ -31,4 +31,5 @@ class ElevatorMotion : public frc2::CommandHelper<frc2::CommandBase, ElevatorMot
   private:
     Elevator* m_elevator;
     bool direction;
+    double throttle;
 };

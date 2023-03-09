@@ -14,6 +14,14 @@ void Elevator::resetEncoder() {
     elevatorVenom.ResetPosition();
 }
 
+void Elevator::setCurrentHeight(double distance) {
+    currentHeight = distance;
+}
+
+double Elevator::getCurrentHeight() {
+    return currentHeight;
+}
+
 double Elevator::getEncoderPosition() {
     return elevatorVenom.GetPosition();
 }

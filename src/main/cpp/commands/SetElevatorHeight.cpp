@@ -2,7 +2,7 @@
 #include <frc/MathUtil.h>
 #include <cmath>
 
-SetElevatorHeight::SetElevatorHeight(Elevator* elevator, int sta) : m_elevator{elevator}, stage{sta} {
+SetElevatorHeight::SetElevatorHeight(Elevator* elevator, int sta, double thr) : m_elevator{elevator}, stage{sta}, throttle{(thr+1.1)/2} {
     AddRequirements(elevator);
 }
 
@@ -13,8 +13,8 @@ void SetElevatorHeight::Initialize() {
 void SetElevatorHeight::Execute() {
     //bottom height
     if(stage == 0) {
-        if (currentHeight > lowStageHeight) {
-            while(this->m_elevator->getElevatorDistance() < abs(currentHeight-lowStageHeight)) {
+        if (this->m_elevator->getCurrentHeight() > lowStageHeight) {
+            while(this->m_elevator->getElevatorDistance() < abs(this->m_elevator->getCurrentHeight()-lowStageHeight)) {
                 this->m_elevator->setElevatorMotors(-0.2);
             }
         }
@@ -22,13 +22,13 @@ void SetElevatorHeight::Execute() {
 
     //mid stage height
     else if (stage == 1){
-        if (currentHeight > midStageHeight) {
-            while(this->m_elevator->getElevatorDistance() < abs(currentHeight-midStageHeight)) {
+        if (this->m_elevator->getCurrentHeight() > midStageHeight) {
+            while(this->m_elevator->getElevatorDistance() < abs(this->m_elevator->getCurrentHeight()-midStageHeight)) {
                 this->m_elevator->setElevatorMotors(-0.2);
             }
         }
-        if (currentHeight < lowStageHeight) {
-            while(this->m_elevator->getElevatorDistance() < abs(currentHeight-midStageHeight)) {
+        if (this->m_elevator->getCurrentHeight() < lowStageHeight) {
+            while(this->m_elevator->getElevatorDistance() < abs(this->m_elevator->getCurrentHeight()-midStageHeight)) {
                 this->m_elevator->setElevatorMotors(0.2);
             }
         }
@@ -36,8 +36,8 @@ void SetElevatorHeight::Execute() {
 
     //high stage height
     else if (stage == 2){
-        if (currentHeight < highStageHeight) {
-            while(this->m_elevator->getElevatorDistance() < abs(currentHeight-highStageHeight)) {
+        if (this->m_elevator->getCurrentHeight() < highStageHeight) {
+            while(this->m_elevator->getElevatorDistance() < abs(this->m_elevator->getCurrentHeight()-highStageHeight)) {
                 this->m_elevator->setElevatorMotors(0.2);
             }
         }
@@ -45,13 +45,13 @@ void SetElevatorHeight::Execute() {
 
     //player height
     else if (stage == 3){
-        if (currentHeight > playerHeight) {
-            while(this->m_elevator->getElevatorDistance() < abs(currentHeight-playerHeight)) {
+        if (this->m_elevator->getCurrentHeight() > playerHeight) {
+            while(this->m_elevator->getElevatorDistance() < abs(this->m_elevator->getCurrentHeight()-playerHeight)) {
                 this->m_elevator->setElevatorMotors(-0.2);
             }
         }
-        if (currentHeight < lowStageHeight) {
-            while(this->m_elevator->getElevatorDistance() < abs(currentHeight-playerHeight)) {
+        if (this->m_elevator->getCurrentHeight() < lowStageHeight) {
+            while(this->m_elevator->getElevatorDistance() < abs(this->m_elevator->getCurrentHeight()-playerHeight)) {
                 this->m_elevator->setElevatorMotors(0.2);
             }
         }
@@ -66,17 +66,16 @@ bool SetElevatorHeight::IsFinished() {
     this->m_elevator->resetEncoder();
     
     if (stage == 0) {
-        currentHeight = lowStageHeight;
+        this->m_elevator->setCurrentHeight(lowStageHeight);
     }
     else if (stage == 1) {
-        currentHeight = lowStageHeight;
+        this->m_elevator->setCurrentHeight(midStageHeight);
     }
     else if (stage == 2) {
-        currentHeight = lowStageHeight;
+        this->m_elevator->setCurrentHeight(highStageHeight);
     }
     else if (stage == 3) {
-        currentHeight = lowStageHeight;
+        this->m_elevator->setCurrentHeight(playerHeight);
     }
-    
     return true;
 }
