@@ -53,3 +53,9 @@ namespace arm {
 namespace elbow {
     const int kElbowPort = 1;
 }
+
+namespace elevator {
+    // INCORRECT PORTS AGAIN WATCH OUT!!!
+    const int kElevatorTalonPort = 0;
+    const int kElevatorVenomPort = 1;
+}
