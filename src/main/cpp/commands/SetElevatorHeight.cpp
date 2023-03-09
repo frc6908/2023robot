@@ -69,13 +69,13 @@ bool SetElevatorHeight::IsFinished() {
         currentHeight = lowStageHeight;
     }
     else if (stage == 1) {
-        currentHeight = lowStageHeight;
+        currentHeight = midStageHeight;
     }
     else if (stage == 2) {
-        currentHeight = lowStageHeight;
+        currentHeight = highStageHeight;
     }
     else if (stage == 3) {
-        currentHeight = lowStageHeight;
+        currentHeight = playerHeight;
     }
     
     return true;

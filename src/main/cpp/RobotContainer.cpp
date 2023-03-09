@@ -20,7 +20,6 @@ void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
   //mapping button numbers
   frc2::JoystickButton flipDriveTrain(&m_joystick, 7);
-<<<<<<< Updated upstream
 
   frc2::JoystickButton gyroBalance(&m_joystick,4);
 
@@ -36,14 +35,7 @@ void RobotContainer::ConfigureButtonBindings() {
 
 
 
-  //maping button functions
-=======
-  frc2::JoystickButton gyroBalance(&m_joystick, 4);
-
-
-  frc2::JoystickButton Twist(&m_joystick, 11);
-  
->>>>>>> Stashed changes
+  //maping button functions  
   flipDriveTrain.WhenPressed(new FlipDrivetrain(&m_drivetrain));
   gyroBalance.WhileHeld(new Gyro(&m_drivetrain));
 
