@@ -48,5 +48,8 @@ namespace gyroBalance {
 namespace arm {
     // Temporary port numbers, change later
     const int kTelescopeTalonPort = 5; 
+}
 
+namespace elbow {
+    const int kElbowPort = 1;
 }
