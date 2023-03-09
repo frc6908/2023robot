@@ -26,6 +26,11 @@ void RobotContainer::ConfigureButtonBindings() {
   elbowRight.WhileHeld(new MoveElbow(&m_elbow, true));
   elbowLeft.WhileHeld(new MoveElbow(&m_elbow, false));
 
+  frc2::JoystickButton gyroBalance(&m_joystick, 4);
+
+
+  frc2::JoystickButton Twist(&m_joystick, 11);
+  
   flipDriveTrain.WhenPressed(new FlipDrivetrain(&m_drivetrain));
   gyroBalance.WhileHeld(new Gyro(&m_drivetrain));
 }

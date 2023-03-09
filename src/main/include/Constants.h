@@ -53,6 +53,11 @@ namespace elevator {
     const double kPulleyDiameter = 1.5;  //inches
 }
 
+namespace wrist {
+    // CHANGE THIS LATER
+    const int kWristTalonPort = 13; 
+}
+
 namespace elbow {
     const int kElbowPort = 12;
 }
