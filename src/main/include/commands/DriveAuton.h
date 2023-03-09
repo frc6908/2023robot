@@ -31,8 +31,12 @@ class DriveAuton : public frc2::CommandHelper<frc2::CommandBase, DriveAuton> {
   private:
     int t;
     Drivetrain* m_drivetrain;
-    //Shooter* m_shooter;
-    //Uptake* m_uptake;
-    //units::unit_t< units::compound_unit<units::meters, units::inverse<units::seconds>> > topVelocity{50.0};
-    //units::unit_t< units::compound_unit<units::meters, units::inverse<units::seconds>> > bottomVelocity{50.0};
+    bool gyromode = false;
+    double error = 0;
+    double cumError = 0;
+    double prevError = 0;
+    // incorrect values, change on friday
+    double kP = 0.04;
+    double kD = 0.00975;
+    double kI = 0;
 };

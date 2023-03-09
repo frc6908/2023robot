@@ -13,11 +13,10 @@ void Gyro::Initialize() {
 }
 
 void Gyro::Execute() { 
-  double error = this -> m_drivetrain -> getPitchAsAngle();
-  error = error * drivetrain::kDT;
+  error = this -> m_drivetrain -> getPitchAsAngle();
   cumError = error * drivetrain::kDT;
   double output = (kP * error) + (kD * (error - prevError) / drivetrain::kDT) + (kI * cumError);
-  this->m_drivetrain->arcadeDrive(0, output);
+  this->m_drivetrain->setDriveMotors(output, output);
   prevError = error;
 } 
 
