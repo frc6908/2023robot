@@ -30,6 +30,9 @@ void RobotContainer::ConfigureButtonBindings() {
   frc2::JoystickButton elevatorDown(&m_joystick, 5);
   frc2::JoystickButton intake(&m_joystick, 1);    
   frc2::JoystickButton outtake(&m_joystick, 2);
+  //change these button
+  frc2::JoystickButton twistRight(&m_joystick, 8);
+  frc2::JoystickButton twistLeft(&m_joystick, 9);
 
 
   elbowRight.WhileHeld(new MoveElbow(&m_elbow, true));
@@ -42,6 +45,9 @@ void RobotContainer::ConfigureButtonBindings() {
   elevatorDown.WhileHeld(new ElevatorMotion(&m_elevator, false));  
   intake.WhileHeld(new IntakeItem(&m_intake));
   outtake.WhileHeld(new OuttakeItem(&m_intake));
+  twistLeft.WhileHeld(new Twist(&m_wrist, false));
+  twistLeft.WhileHeld(new Twist(&m_wrist, true));
+  // need to add limelight and wrist commands/subsystems
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() { 
