@@ -18,13 +18,13 @@
 
 namespace drivetrain {
     // Temporary port numbers; change later.
-    const int kLeftDriveSparkPort1 = 15;
-    const int kLeftDriveSparkPort2 = 14;
-    const int kLeftDriveSparkPort3 = 13;
+    const int kLeftDriveSparkPort1 = 19;
+    const int kLeftDriveSparkPort2 = 18;
+    const int kLeftDriveSparkPort3 = 17;
 
-    const int kRightDriveSparkPort1 = 12;
-    const int kRightDriveSparkPort2 = 11;
-    const int kRightDriveSparkPort3 = 10; 
+    const int kRightDriveSparkPort1 = 1;
+    const int kRightDriveSparkPort2 = 2;
+    const int kRightDriveSparkPort3 = 3; 
 
     const int kWheelDiameter = 6;   //inches
     
@@ -38,6 +38,6 @@ namespace oi {
 
 namespace intake {
     // THESE CONSTANTS ARE JUST FILLER CONSTANTS CHANGE THESE LATER
-    const int kIntakeTalonPort1 = 0;
-    const int kIntakeTalonPort2 = 1;
+    const int kIntakeVictorPort1 = 11;
+    const int kIntakeVictorPort2 = 16;
 }

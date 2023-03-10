@@ -9,7 +9,7 @@ void IntakeItem::Initialize() {
 }
 
 void IntakeItem::Execute() {
-    this->m_intake->setIntakeMotors(0.2);
+    this->m_intake->setIntakeMotors(0.8);
 }
 
 void IntakeItem::End(bool interrupted) {
