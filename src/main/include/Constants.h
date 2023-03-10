@@ -33,7 +33,7 @@ namespace drivetrain {
 
 namespace oi {
     const int kDriveJoystickPort = 0;   // drive joystick
-    //const int kDriveControllerPort = 1; // operator ps5 controller
+    const int kArmJoystickPort = 1; // elbow joystick
 }
 
 namespace gyroBalance {

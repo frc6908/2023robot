@@ -28,6 +28,7 @@
 #include "commands/IntakeItem.h"
 #include "commands/OuttakeItem.h"
 #include "commands/Twist.h"
+#include "commands/SetElevatorHeight.h"
 
 #include <frc/Joystick.h>
 #include <frc2/command/button/JoystickButton.h>
@@ -73,7 +74,7 @@ class RobotContainer {
 
   //joystick
   frc::Joystick m_joystick{oi::kDriveJoystickPort};
-  //frc::PS4Controller m_controller{oi::kDriveControllerPort};
+  frc::Joystick m_joystickArm{oi::kArmJoystickPort};
 
   void ConfigureButtonBindings();
 };

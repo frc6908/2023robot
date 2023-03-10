@@ -16,9 +16,9 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class ElevatorMotion : public frc2::CommandHelper<frc2::CommandBase, ElevatorMotion> {
+class SetElevatorHeight : public frc2::CommandHelper<frc2::CommandBase, SetElevatorHeight> {
  public:
-  ElevatorMotion(Elevator*, bool, double);
+  SetElevatorHeight(Elevator*, int, double);
   
   void Initialize() override;
 
@@ -30,6 +30,12 @@ class ElevatorMotion : public frc2::CommandHelper<frc2::CommandBase, ElevatorMot
 
   private:
     Elevator* m_elevator;
-    bool direction;
+    int stage;
     double throttle;
+    double currentHeight = 11;
+    
+    const int lowStageHeight = 10; //height inches
+    const int midStageHeight = 36;
+    const int highStageHeight = 48;
+    const int playerHeight = 39;
 };

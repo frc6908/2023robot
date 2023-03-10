@@ -28,6 +28,16 @@ class Elevator : public frc2::SubsystemBase {
 
         void setElevatorMotors(double);
 
+        void resetEncoder();
+
+        void setCurrentHeight(double);
+
+        double getCurrentHeight();
+
+        double getEncoderPosition();
+
+        double getElevatorDistance();
+
         void stop();
 
         void Periodic() override;
@@ -37,4 +47,6 @@ class Elevator : public frc2::SubsystemBase {
         frc::CANVenom elevatorVenom{elevator::kElevatorVenomPort};
 
         frc::MotorControllerGroup elevatorMotors{elevatorTalon, elevatorVenom};
+
+        double currentHeight = 10.0;
 };
