@@ -47,8 +47,15 @@ namespace gyroBalance {
 
 namespace elevator {
     // INCORRECT PORTS AGAIN WATCH OUT!!!
-    const int kElevatorTalonPort = 0;
-    const int kElevatorVenomPort = 1;
+    const int kElevatorTalonPort = 10;
+    const int kElevatorVenomPort = 11;
+        const double kPulleyDiameter = 1.5;  //inches
 
-    const double kPulleyDiameter = 1.5;  //inches
+}
+
+namespace wrist {
+    // CHANGE THIS LATER
+    const int kWristTalonPort = 13; 
+
+
 }

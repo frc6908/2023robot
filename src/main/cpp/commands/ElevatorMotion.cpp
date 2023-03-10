@@ -12,10 +12,17 @@ void ElevatorMotion::Initialize() {
 
 void ElevatorMotion::Execute() {
     if(direction) {
+<<<<<<< HEAD
         this->m_elevator->setElevatorMotors(throttle);
     }
     else {
         this->m_elevator->setElevatorMotors(-throttle);
+=======
+        this->m_elevator->setElevatorMotors(1);
+    }
+    else {
+        this->m_elevator->setElevatorMotors(-1);
+>>>>>>> 4dfe1e5de75e51105a609fc49055630b3b197d34
     }
 }
 
