@@ -7,13 +7,13 @@
 Intake::Intake() {}
 
 void Intake::setIntakeMotors(double intakeSpeed) {
-  IntakeTalon1.Set(intakeSpeed);
-  IntakeTalon2.Set(-intakeSpeed);
+  IntakeVictor1.Set(intakeSpeed);
+  IntakeVictor2.Set(intakeSpeed);
 }
 
 void Intake::stop() {
-  IntakeTalon1.Set(0);
-  IntakeTalon2.Set(1);
+  IntakeVictor1.Set(0);
+  IntakeVictor2.Set(0);
 }
 
 void Intake::Periodic() {}

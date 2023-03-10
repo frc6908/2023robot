@@ -10,6 +10,7 @@
 #include <frc/shuffleboard/ShuffleboardTab.h>
 
 #include <ctre/phoenix/motorcontrol/can/WPI_TalonSRX.h>
+#include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h>
 
 #include "Constants.h"
 
@@ -35,6 +36,6 @@ class Intake : public frc2::SubsystemBase {
  private:
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
-  ctre::phoenix::motorcontrol::can::WPI_TalonSRX IntakeTalon1{intake::kIntakeTalonPort1};
-  ctre::phoenix::motorcontrol::can::WPI_TalonSRX IntakeTalon2{intake::kIntakeTalonPort2};
+  ctre::phoenix::motorcontrol::can::WPI_VictorSPX IntakeVictor1{intake::kIntakeVictorPort1};
+  ctre::phoenix::motorcontrol::can::WPI_VictorSPX IntakeVictor2{intake::kIntakeVictorPort2};
 };

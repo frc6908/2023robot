@@ -69,8 +69,8 @@ namespace wrist {
 
 namespace intake {
     // THESE CONSTANTS ARE JUST FILLER CONSTANTS CHANGE THESE LATER
-    const int kIntakeTalonPort1 = 0;
-    const int kIntakeTalonPort2 = 1;
+    const int kIntakeVictorPort1 = 11;
+    const int kIntakeVictorPort2 = 16;
 }
 
 namespace limelight {
@@ -79,5 +79,3 @@ namespace limelight {
     const double kCameraHeight = 26;
     const double kCameraAngle = 0;
 }
-
-
