@@ -9,6 +9,7 @@
 #include <frc2/command/SubsystemBase.h>
 
 #include <ctre/phoenix/motorcontrol/can/WPI_TalonSRX.h>
+#include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
 
 #include <frc/SPI.h>
@@ -46,8 +47,8 @@ class Wrist : public frc2::SubsystemBase {
  private:
     const int ticks_per_revolution = 2048;
 
-    ctre::phoenix::motorcontrol::can::WPI_TalonSRX wristTalon{wrist::kWristTalonPort};
-    frc::MotorControllerGroup wristMotor{wristTalon};
+    ctre::phoenix::motorcontrol::can::WPI_VictorSPX wristVictor{wrist::kWristVictorPort};
+    frc::MotorControllerGroup wristMotor{wristVictor};
 
     frc::Encoder wristEncoder{0, 1};
 };

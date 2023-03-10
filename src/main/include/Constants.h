@@ -50,6 +50,11 @@ namespace arm {
     const int kTelescopeTalonPort = 5; 
 }
 
+namespace wrist {
+    // CHANGE THIS LATER
+    const int kWristVictorPort = 14; 
+}
+
 namespace elbow {
     const int kElbowPort = 12;
 }
@@ -60,11 +65,6 @@ namespace elevator {
     const int kElevatorVenomPort = 11;
 
     const double kPulleyDiameter = 1.5;  //inches
-}
-
-namespace wrist {
-    // CHANGE THIS LATER
-    const int kWristTalonPort = 13; 
 }
 
 namespace intake {
