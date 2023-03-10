@@ -12,11 +12,23 @@
 #include "subsystems/ExampleSubsystem.h"
 
 #include "subsystems/Drivetrain.h"
+#include "subsystems/Arm.h"
+#include "subsystems/Elevator.h"
+#include "subsystems/Elbow.h"
+#include "subsystems/Intake.h"
+#include "subsystems/Wrist.h"
 
 #include "commands/ArcadeDrive.h"
 #include "commands/DriveAuton.h"
 #include "commands/FlipDrivetrain.h"
 #include "commands/Gyro.h"
+#include "commands/Extend.h"
+#include "commands/ElevatorMotion.h"
+#include "commands/MoveElbow.h"
+#include "commands/IntakeItem.h"
+#include "commands/OuttakeItem.h"
+#include "commands/Twist.h"
+#include "commands/SetElevatorHeight.h"
 
 #include <frc/Joystick.h>
 #include <frc2/command/button/JoystickButton.h>
@@ -42,10 +54,27 @@ class RobotContainer {
   //drivetrain
   Drivetrain m_drivetrain;
   DriveAuton m_driveAutoCommand{&m_drivetrain /*, &m_shooter, &m_uptake */};
+  
+  //Arm
+  Arm m_arm;
+
+  //elevator
+  Elevator m_elevator;
+
+  //Elbow
+  Elbow m_elbow;
+
+  //intake
+
+  Intake m_intake;
+
+  //wrist
+
+  Wrist m_wrist;
 
   //joystick
   frc::Joystick m_joystick{oi::kDriveJoystickPort};
-  //frc::PS4Controller m_controller{oi::kDriveControllerPort};
+  frc::Joystick m_joystickArm{oi::kArmJoystickPort};
 
   void ConfigureButtonBindings();
 };

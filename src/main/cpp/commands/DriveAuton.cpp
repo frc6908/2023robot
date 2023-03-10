@@ -4,52 +4,43 @@
 
 #include "commands/DriveAuton.h"
 
-DriveAuton::DriveAuton(Drivetrain* drivetrain /*, Shooter* shooter, Uptake* uptake */ )
-    : m_drivetrain{drivetrain} /* , m_shooter{shooter}, m_uptake{uptake} */ {
-
+DriveAuton::DriveAuton(Drivetrain* drivetrain) : m_drivetrain{drivetrain} {
     AddRequirements(drivetrain); 
-    /*
-    AddRequirements(shooter);
-    AddRequirements(uptake);
-    */
 }
 
 void DriveAuton::Initialize() {
     t = 0;
+    cumError = 0;
+    prevError = 0;
+    error = 0;
     this->m_drivetrain->stop();
 }
 
 void DriveAuton::Execute() {
-    /*
-    if (t <= 500) {
-        double tv = this->m_shooter->getTopVelocity();
-        double bv = this->m_shooter->getBottomVelocity();
-
-        if (this->m_shooter->withinTolerance(tv, topVelocity.value(), 3)) {
-            // DO SOMETHING 
-            this->m_uptake->setUptakeMotor(0.6);
-            this->m_uptake->setTopFeederMotor(0.7);
+    if(t <= 750) {
+        if(gyromode) {
+            error = this -> m_drivetrain -> getPitchAsAngle();
+            cumError = error * drivetrain::kDT;
+            double output = (kP * error) + (kD * (error - prevError) / drivetrain::kDT) + (kI * cumError);
+            this->m_drivetrain->setDriveMotors(output, output);
+            prevError = error;
+        }   
+        else {
+            this->m_drivetrain->setDriveMotors(-0.4, -0.4);
+            double angle = this->m_drivetrain->getPitchAsAngle();
+            if(angle >= 6 || angle <= -6) {
+                gyromode = true;
+            }
         }
-
-        this->m_shooter->getTPID()->SetSetpoint(this->topVelocity.value());
-        this->m_shooter->getBPID()->SetSetpoint(this->bottomVelocity.value());
-
-        units::voltage::volt_t ctop{this->m_shooter->getTPID()->Calculate(tv)};
-        units::voltage::volt_t cbot{this->m_shooter->getBPID()->Calculate(bv)};
-
-        this->m_shooter->setTopMotorVoltage(ctop + this->m_shooter->getTFF()->Calculate(topVelocity));
-        this->m_shooter->setBottomMotorVoltage(cbot + this->m_shooter->getBFF()->Calculate(bottomVelocity));
     }
-    */
-    if (t > 500) {
-        this->m_drivetrain->setDriveMotors(-0.4, -0.4);
+    else {
+        this->m_drivetrain->setDriveMotors(0, 0);
     }
     t++;
 }
 
 void DriveAuton::End(bool interrupted) {
     this->m_drivetrain->stop();
-    units::voltage::volt_t stopVoltage{0.0};
     /*
     this->m_shooter->setTopMotorVoltage(stopVoltage);
     this->m_shooter->setBottomMotorVoltage(stopVoltage);

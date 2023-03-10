@@ -22,6 +22,13 @@ class Gyro : public frc2::CommandHelper<frc2::CommandBase, Gyro> {
 
         bool IsFinished() override;
     private:
-        frc::AnalogGyro m_gyro{gyroBalance::kGyroPort};
         Drivetrain* m_drivetrain;
+        double error = 0;
+        double cumError = 0;
+        double prevError = 0;
+        // incorrect values, change on friday
+        // change at comp
+        double kP = 0.04;
+        double kD = 0.00975;
+        double kI = 0;
 };
