@@ -12,10 +12,10 @@ void ElevatorMotion::Initialize() {
 
 void ElevatorMotion::Execute() {
     if(direction) {
-        this->m_elevator->setElevatorMotors(0.7);
+        this->m_elevator->setElevatorMotors(1);
     }
     else {
-        this->m_elevator->setElevatorMotors(-0.2);
+        this->m_elevator->setElevatorMotors(-1);
     }
 }
 
