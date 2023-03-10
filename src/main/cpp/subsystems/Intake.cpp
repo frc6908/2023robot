@@ -8,7 +8,7 @@ Intake::Intake() {}
 
 void Intake::setIntakeMotors(double intakeSpeed) {
   IntakeVictor1.Set(intakeSpeed);
-  IntakeVictor2.Set(-intakeSpeed);
+  IntakeVictor2.Set(intakeSpeed);
 }
 
 void Intake::stop() {
