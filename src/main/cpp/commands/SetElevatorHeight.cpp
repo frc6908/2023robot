@@ -27,7 +27,7 @@ void SetElevatorHeight::Execute() {
                 this->m_elevator->setElevatorMotors(-0.2);
             }
         }
-        if (this->m_elevator->getCurrentHeight() < lowStageHeight) {
+        if (this->m_elevator->getCurrentHeight() < midStageHeight) {
             while(this->m_elevator->getElevatorDistance() < abs(this->m_elevator->getCurrentHeight()-midStageHeight)) {
                 this->m_elevator->setElevatorMotors(0.2);
             }
@@ -50,7 +50,7 @@ void SetElevatorHeight::Execute() {
                 this->m_elevator->setElevatorMotors(-0.2);
             }
         }
-        if (this->m_elevator->getCurrentHeight() < lowStageHeight) {
+        if (this->m_elevator->getCurrentHeight() < playerHeight) {
             while(this->m_elevator->getElevatorDistance() < abs(this->m_elevator->getCurrentHeight()-playerHeight)) {
                 this->m_elevator->setElevatorMotors(0.2);
             }
@@ -69,7 +69,6 @@ bool SetElevatorHeight::IsFinished() {
         this->m_elevator->setCurrentHeight(lowStageHeight);
     }
     else if (stage == 1) {
-<<<<<<< HEAD
         this->m_elevator->setCurrentHeight(midStageHeight);
     }
     else if (stage == 2) {
@@ -77,15 +76,6 @@ bool SetElevatorHeight::IsFinished() {
     }
     else if (stage == 3) {
         this->m_elevator->setCurrentHeight(playerHeight);
-=======
-        currentHeight = midStageHeight;
-    }
-    else if (stage == 2) {
-        currentHeight = highStageHeight;
-    }
-    else if (stage == 3) {
-        currentHeight = playerHeight;
->>>>>>> 4dfe1e5de75e51105a609fc49055630b3b197d34
     }
     return true;
 }
