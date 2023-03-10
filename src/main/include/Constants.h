@@ -47,6 +47,6 @@ namespace gyroBalance {
 
 namespace wrist {
     // CHANGE THIS LATER
-    const int kWristTalonPort = 14; 
+    const int kWristVictorPort = 14; 
 }
 
