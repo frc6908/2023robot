@@ -60,16 +60,16 @@ void RobotContainer::ConfigureButtonBindings() {
   wristLeft.WhenHeld(new Twist(&m_wrist, false));
 
   //elbow movement
-  frc2::JoystickButton elbowRight(&m_joystick, 4);
-  elbowRight.WhileHeld(new MoveElbow(&m_elbow, true));
-  frc2::JoystickButton elbowLeft(&m_joystick, 6);
-  elbowLeft.WhileHeld(new MoveElbow(&m_elbow, false));
+  frc2::JoystickButton elbowForward(&m_joystick, 6);
+  elbowForward.WhileHeld(new MoveElbow(&m_elbow, true));
+  frc2::JoystickButton elbowBack(&m_joystick, 4);
+  elbowBack.WhileHeld(new MoveElbow(&m_elbow, false));
 
   //limelight
   frc2::JoystickButton PIDTall(&m_joystick, 3);
-  frc2::JoystickButton PIDMiddle(&m_joystick, 5);
   PIDTall.WhenPressed(new PIDRotateAngle(&m_drivetrain, &m_limelight, 10.636));
-  PIDTall.WhenPressed(new PIDRotateAngle(&m_drivetrain, &m_limelight, 15.422));
+  frc2::JoystickButton PIDMiddle(&m_joystick, 5);
+  PIDMiddle.WhenPressed(new PIDRotateAngle(&m_drivetrain, &m_limelight, 15.422));
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() { 
