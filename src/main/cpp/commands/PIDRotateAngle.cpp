@@ -4,8 +4,8 @@
 
 #include "commands/PIDRotateAngle.h"
 
-PIDRotateAngle::PIDRotateAngle(Drivetrain* drivetrain, Limelight* limelight)
-    : m_drivetrain{drivetrain}, m_limelight{limelight} {
+PIDRotateAngle::PIDRotateAngle(Drivetrain* drivetrain, Limelight* limelight, double angle)
+    : m_drivetrain{drivetrain}, m_limelight{limelight}, target{angle} {
 
     AddRequirements(drivetrain); 
     AddRequirements(limelight);
@@ -20,7 +20,7 @@ void PIDRotateAngle::Initialize() {
 }
 
 void PIDRotateAngle::Execute() {
-    error = -this->m_limelight->getHorizontalOffset();
+    error = -(this->m_limelight->getHorizontalOffset() - target);
     cumError += error * drivetrain::kDT;
     double output = (kP * error) + (kD * (error - previousError) / drivetrain::kDT) + (kI * cumError);
     this->m_drivetrain->arcadeDrive(0, -output);

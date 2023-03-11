@@ -19,7 +19,7 @@
  */
 class PIDRotateAngle : public frc2::CommandHelper<frc2::CommandBase, PIDRotateAngle> {
  public:
-  PIDRotateAngle(Drivetrain*, Limelight*);
+  PIDRotateAngle(Drivetrain*, Limelight*, double);
 
   void Initialize() override;
 
@@ -32,6 +32,7 @@ class PIDRotateAngle : public frc2::CommandHelper<frc2::CommandBase, PIDRotateAn
   private:
     Drivetrain* m_drivetrain;
     Limelight* m_limelight;
+    double target;
 
     double setpoint;
     double kP = 0.08; // 0.15; // 0.03;// 0.025; // 0.06//0.0825;//0.075;// 0.0875; // 0.09; //0.1; // 0.1125;//0.125; //0.15;
