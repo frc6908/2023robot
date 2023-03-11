@@ -26,7 +26,7 @@ void DriveAuton::Execute() {
             prevError = error;
         }   
         else {
-            this->m_drivetrain->setDriveMotors(-0.4, -0.4);
+            this->m_drivetrain->setDriveMotors(-0.6, -0.6);
             double angle = this->m_drivetrain->getPitchAsAngle();
             if(angle >= 6 || angle <= -6) {
                 gyromode = true;
