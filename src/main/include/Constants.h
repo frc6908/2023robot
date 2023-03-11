@@ -62,7 +62,7 @@ namespace elbow {
 namespace elevator {
     // INCORRECT PORTS AGAIN WATCH OUT!!!
     const int kElevatorTalonPort = 10;
-    const int kElevatorVenomPort = 11;
+    const int kElevatorVenomPort = 15;
 
     const double kPulleyDiameter = 1.5;  //inches
 }
