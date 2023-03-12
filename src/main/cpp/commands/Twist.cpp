@@ -14,10 +14,10 @@ void Twist::Initialize() {
 
 void Twist::Execute() {
     if(isRight) {
-        this->m_wrist->setWristMotor(0.3);
+        this->m_wrist->setWristMotor(0.8);
     }
     else if (!isRight) {
-        this->m_wrist->setWristMotor(-0.3);
+        this->m_wrist->setWristMotor(-0.8);
     }
 }
 
