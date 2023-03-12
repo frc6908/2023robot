@@ -8,6 +8,9 @@
 
 #include <frc2/command/Command.h>
 
+#include <frc/smartdashboard/SendableChooser.h>
+#include <frc/smartdashboard/SmartDashboard.h>
+
 #include "commands/ExampleCommand.h"
 #include "subsystems/ExampleSubsystem.h"
 
@@ -20,7 +23,7 @@
 #include "subsystems/Limelight.h"
 
 #include "commands/ArcadeDrive.h"
-#include "commands/DriveAuton.h"
+#include "commands/GyroAuto.h"
 #include "commands/FlipDrivetrain.h"
 #include "commands/Gyro.h"
 #include "commands/Extend.h"
@@ -31,6 +34,8 @@
 #include "commands/Twist.h"
 #include "commands/SetElevatorHeight.h"
 #include "commands/PIDRotateAngle.h"
+#include "commands/SlowAuto.h"
+#include "commands/StationaryAuto.h"
 
 #include <frc/Joystick.h>
 #include <frc2/command/button/JoystickButton.h>
@@ -55,7 +60,6 @@ class RobotContainer {
 
   //drivetrain
   Drivetrain m_drivetrain;
-  DriveAuton m_driveAutoCommand{&m_drivetrain /*, &m_shooter, &m_uptake */};
   
   //Arm
   Arm m_arm;
@@ -76,6 +80,14 @@ class RobotContainer {
 
   // limelight
   Limelight m_limelight;
+
+  // autonomous modes
+  StationaryAuto m_stationaryauto{&m_drivetrain};
+  SlowAuto m_slowauto{&m_drivetrain};
+  GyroAuto m_gyroauto{&m_drivetrain};
+
+  // chooser for autonomous routines
+  frc::SendableChooser<frc2::Command*> m_chooser;
 
   //joystick
   frc::Joystick m_joystick{oi::kDriveJoystickPort};
