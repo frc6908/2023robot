@@ -16,7 +16,7 @@ void Twist::Execute() {
     if(isRight) {
         this->m_wrist->setWristMotor(0.3);
     }
-    else {
+    else if (!isRight) {
         this->m_wrist->setWristMotor(-0.3);
     }
 }

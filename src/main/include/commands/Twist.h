@@ -31,5 +31,4 @@ class Twist : public frc2::CommandHelper<frc2::CommandBase, Twist> {
   private:
     Wrist* m_wrist;
     bool isRight;
-    double current_angle = 0;
 };

@@ -41,8 +41,6 @@ class Wrist : public frc2::SubsystemBase {
   void Periodic() override;
 
  private:
-    const int ticks_per_revolution = 2048;
-
     ctre::phoenix::motorcontrol::can::WPI_VictorSPX wristVictor{wrist::kWristVictorPort};
     frc::MotorControllerGroup wristMotor{wristVictor};
 
