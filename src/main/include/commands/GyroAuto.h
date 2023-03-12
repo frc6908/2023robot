@@ -36,7 +36,7 @@ class GyroAuto : public frc2::CommandHelper<frc2::CommandBase, GyroAuto> {
     double cumError = 0;
     double prevError = 0;
     // incorrect values, change on friday
-    double kP = 0.04;
-    double kD = 0.00975;
+    double kP = 0.75;
+    double kD = 0.4;
     double kI = 0;
 };

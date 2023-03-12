@@ -16,7 +16,7 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   m_chooser.AddOption("Slow Auto", &m_slowauto);
   m_chooser.AddOption("Gyro Auto", &m_gyroauto);
 
-  frc::SmartDashboard::PutData(&m_chooser);
+  frc::Shuffleboard::GetTab("Autonomous").Add(m_chooser).WithWidget(frc::BuiltInWidgets::kComboBoxChooser);
 
   // Configure the button bindings
   ConfigureButtonBindings();
