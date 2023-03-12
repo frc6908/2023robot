@@ -13,31 +13,15 @@ void Twist::Initialize() {
 }
 
 void Twist::Execute() {
-    double angle = this->m_wrist->getRotationAngle();
-    if(isRight && current_angle <= 180.0) {
-        if(angle >= 90.0) {
-            this->m_wrist->stop();
-        }
-        else {
-            this->m_wrist->setWristMotor(0.1);
-        }
-    }
-    else if(!isRight && current_angle >= -180.0){
-        if(angle >= 90.0) {
-            this->m_wrist->stop();
-        }
-        else {
-            this->m_wrist->setWristMotor(-0.1);
-        }
+    if(isRight) {
+        this->m_wrist->setWristMotor(0.3);
     }
     else {
-        this->m_wrist->stop();
+        this->m_wrist->setWristMotor(-0.3);
     }
 }
 
 void Twist::End(bool interrupted) { 
-    current_angle += (isRight ? 1 : -1) * this->m_wrist->getRotationAngle();
-    this->m_wrist->resetEncoder();
     this->m_wrist->stop();
 }
 

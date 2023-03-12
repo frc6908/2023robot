@@ -11,6 +11,7 @@
 
 #include <ctre/phoenix/motorcontrol/can/WPI_TalonSRX.h>
 #include <ctre/phoenix/motorcontrol/can/WPI_VictorSPX.h>
+#include <frc/motorcontrol/MotorControllerGroup.h>
 
 #include "Constants.h"
 
@@ -38,4 +39,7 @@ class Intake : public frc2::SubsystemBase {
   // declared private and exposed only through public methods.
   ctre::phoenix::motorcontrol::can::WPI_VictorSPX IntakeVictor1{intake::kIntakeVictorPort1};
   ctre::phoenix::motorcontrol::can::WPI_VictorSPX IntakeVictor2{intake::kIntakeVictorPort2};
+
+  frc::MotorControllerGroup IntakeMotor1{IntakeVictor1};
+  frc::MotorControllerGroup IntakeMotor2{IntakeVictor2};
 };

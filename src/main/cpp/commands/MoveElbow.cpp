@@ -13,11 +13,11 @@ void MoveElbow::Initialize() {
 void MoveElbow::Execute() {
     // double angle = this->m_elbow->getRotationAngle();
     if(isRight) {
-        this->m_elbow->setElbowMotor(0.3);
+        this->m_elbow->setElbowMotor(0.6);
         // current_angle = angle;
     }
     else if(!isRight){
-        this->m_elbow->setElbowMotor(-0.3);
+        this->m_elbow->setElbowMotor(-0.6);
         // current_angle = -angle;
     }
     // else {

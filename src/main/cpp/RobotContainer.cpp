@@ -49,20 +49,20 @@ void RobotContainer::ConfigureButtonBindings() {
 
   //arm telescope
   frc2::JoystickButton wrenchIn(&m_joystickArm, 1);
-  wrenchIn.WhenHeld(new Extend(&m_arm, true));
+  wrenchIn.WhileHeld(new Extend(&m_arm, true));
   frc2::JoystickButton wrenchOut(&m_joystickArm, 2);
-  wrenchOut.WhenHeld(new Extend(&m_arm, false));
+  wrenchOut.WhileHeld(new Extend(&m_arm, false));
 
   //wrist movement
   frc2::JoystickButton wristRight(&m_joystickArm, 5);
-  wristRight.WhenHeld(new Twist(&m_wrist, true));
+  wristRight.WhileHeld(new Twist(&m_wrist, true));
   frc2::JoystickButton wristLeft(&m_joystickArm, 3);
-  wristLeft.WhenHeld(new Twist(&m_wrist, false));
+  wristLeft.WhileHeld(new Twist(&m_wrist, false));
 
   //elbow movement
-  frc2::JoystickButton elbowForward(&m_joystick, 6);
+  frc2::JoystickButton elbowForward(&m_joystickArm, 6);
   elbowForward.WhileHeld(new MoveElbow(&m_elbow, true));
-  frc2::JoystickButton elbowBack(&m_joystick, 4);
+  frc2::JoystickButton elbowBack(&m_joystickArm, 4);
   elbowBack.WhileHeld(new MoveElbow(&m_elbow, false));
 
   //limelight

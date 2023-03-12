@@ -33,10 +33,6 @@ class Wrist : public frc2::SubsystemBase {
 
   void setWristMotor(double);
 
-  double getRotationAngle();
-
-  void resetEncoder();
-
   void stop();
 
   /**
@@ -50,5 +46,4 @@ class Wrist : public frc2::SubsystemBase {
     ctre::phoenix::motorcontrol::can::WPI_VictorSPX wristVictor{wrist::kWristVictorPort};
     frc::MotorControllerGroup wristMotor{wristVictor};
 
-    frc::Encoder wristEncoder{0, 1};
 };

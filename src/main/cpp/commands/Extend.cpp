@@ -12,10 +12,10 @@ void Extend::Initialize() {
 
 void Extend::Execute() {
     if(isExtend) {
-        this->m_arm->setTelescopeMotor(0.3);
+        this->m_arm->setTelescopeMotor(0.5);
     }
     else {
-        this->m_arm->setTelescopeMotor(-0.3);
+        this->m_arm->setTelescopeMotor(-0.5);
     }
 }
 
