@@ -5,9 +5,19 @@
 #include "RobotContainer.h"
 #include <iostream>
 
+#include <frc/shuffleboard/Shuffleboard.h>
+
+
 RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   // Initialize all of your commands and subsystems here
   
+
+  m_chooser.SetDefaultOption("Stationary Auto", &m_stationaryauto);
+  m_chooser.AddOption("Slow Auto", &m_slowauto);
+  m_chooser.AddOption("Gyro Auto", &m_gyroauto);
+
+  frc::SmartDashboard::PutData(&m_chooser);
+
   // Configure the button bindings
   ConfigureButtonBindings();
 
@@ -75,7 +85,7 @@ void RobotContainer::ConfigureButtonBindings() {
 frc2::Command* RobotContainer::GetAutonomousCommand() { 
   // An example command will be run in autonomous
   //return &m_autonomousCommand;
-  return &m_driveAutoCommand;
+  return m_chooser.GetSelected();
 }
 
 
