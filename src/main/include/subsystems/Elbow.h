@@ -8,7 +8,9 @@
 
 #include <frc2/command/SubsystemBase.h>
 
-#include <ctre/phoenix/motorcontrol/can/WPI_TalonSRX.h>
+#include <rev/CANSparkMax.h>
+#include <rev/CANSparkMaxLowLevel.h>
+#include <rev/SparkMaxRelativeEncoder.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
 
 #include <frc/shuffleboard/Shuffleboard.h>
@@ -40,10 +42,10 @@ class Elbow : public frc2::SubsystemBase {
  private:
   const int ticks_per_revolution = 2048;
   
+  rev::CANSparkMax elbowSpark1{elbow::kElbowPort1, rev::CANSparkMaxLowLevel::MotorType::kBrushless};
+  rev::CANSparkMax elbowSpark2{elbow::kElbowPort1, rev::CANSparkMaxLowLevel::MotorType::kBrushless};
 
-  ctre::phoenix::motorcontrol::can::WPI_TalonSRX elbowTalon{elbow::kElbowPort};
-
-  frc::MotorControllerGroup elbowMotor{elbowTalon};
+  frc::MotorControllerGroup elbowMotors{elbowSpark1, elbowSpark2};
 
   // frc::Encoder elbowEncoder{0, 1};
   

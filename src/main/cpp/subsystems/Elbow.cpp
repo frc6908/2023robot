@@ -7,11 +7,11 @@
 Elbow::Elbow() {}
 
 void Elbow::setElbowMotor(double speed) {
-    elbowMotor.Set(speed);
+    elbowMotors.Set(speed);
 }
 
 void Elbow::stop() {
-    elbowMotor.Set(0);
+    elbowMotors.Set(0);
 }
 
 // double Elbow::getRotationAngle() {

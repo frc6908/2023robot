@@ -56,7 +56,8 @@ namespace wrist {
 }
 
 namespace elbow {
-    const int kElbowPort = 12;
+    const int kElbowPort1 = 12;
+    const int kElbowPort2 = 13;
 }
 
 namespace elevator {
