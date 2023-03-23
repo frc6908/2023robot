@@ -31,12 +31,5 @@ class GyroAuto : public frc2::CommandHelper<frc2::CommandBase, GyroAuto> {
   private:
     int t;
     Drivetrain* m_drivetrain;
-    bool gyromode = false;
-    double error = 0;
-    double cumError = 0;
-    double prevError = 0;
-    // incorrect values, change on friday
-    double kP = 0.75;
-    double kD = 0.4;
-    double kI = 0;
+    bool gyromode;
 };

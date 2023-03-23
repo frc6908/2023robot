@@ -10,25 +10,25 @@ GyroAuto::GyroAuto(Drivetrain* drivetrain) : m_drivetrain{drivetrain} {
 
 void GyroAuto::Initialize() {
     t = 0;
-    cumError = 0;
-    prevError = 0;
-    error = 0;
+    gyromode = false;
     this->m_drivetrain->stop();
 }
 
 void GyroAuto::Execute() {
     if(t <= 750) {
         if(gyromode) {
-            error = this -> m_drivetrain -> getPitchAsAngle();
-            cumError = error * drivetrain::kDT;
-            double output = (kP * error) + (kD * (error - prevError) / drivetrain::kDT) + (kI * cumError);
-            this->m_drivetrain->setDriveMotors(output, output);
-            prevError = error;
-        }   
+            // when on top of the charging station
+            if(fabs(this->m_drivetrain->getPitchAsAngle()) < 9) {
+                this->m_drivetrain->setDriveMotors(0.0, 0.0);
+            }
+            else {
+                this->m_drivetrain->setDriveMotors(-0.2, -0.2);
+            }
+
+        }    
         else {
-            this->m_drivetrain->setDriveMotors(-0.6, -0.6);
-            double angle = this->m_drivetrain->getPitchAsAngle();
-            if(angle >= 6 || angle <= -6) {
+            this->m_drivetrain->setDriveMotors(-0.4, -0.4);
+            if(fabs(this -> m_drivetrain -> getPitchAsAngle()) > 30) {
                 gyromode = true;
             }
         }
