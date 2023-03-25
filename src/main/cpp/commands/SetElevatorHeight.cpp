@@ -2,7 +2,7 @@
 #include <frc/MathUtil.h>
 #include <cmath>
 
-SetElevatorHeight::SetElevatorHeight(Elevator* elevator, int sta, double thr) : m_elevator{elevator}, stage{sta}, throttle{(thr+1.1)/2} {
+SetElevatorHeight::SetElevatorHeight(Elevator* elevator, int sta) : m_elevator{elevator}, stage{sta} {
     AddRequirements(elevator);
 }
 

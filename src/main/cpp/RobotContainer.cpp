@@ -43,13 +43,13 @@ void RobotContainer::ConfigureButtonBindings() {
 
   //preset elevator stages
   frc2::JoystickButton elevatorLowHeight(&m_joystick,12);
-  elevatorLowHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 0, m_joystickArm.GetThrottle()));
+  elevatorLowHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 0));
   frc2::JoystickButton elevatorMidHeight(&m_joystick,10);
-  elevatorMidHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 1, m_joystickArm.GetThrottle()));
+  elevatorMidHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 1));
   frc2::JoystickButton elevatorHighHeight(&m_joystick,11);
-  elevatorHighHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 2, m_joystickArm.GetThrottle()));
+  elevatorHighHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 2));
   frc2::JoystickButton elevatorPlayerHeight(&m_joystick,9);
-  elevatorPlayerHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 3, m_joystickArm.GetThrottle()));
+  elevatorPlayerHeight.WhenPressed(new SetElevatorHeight(&m_elevator, 3));
 
   //elevator manual
   frc2::JoystickButton elevatorUp(&m_joystick, 6);
