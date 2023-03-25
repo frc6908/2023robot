@@ -32,6 +32,7 @@ class SetElevatorHeight : public frc2::CommandHelper<frc2::CommandBase, SetEleva
     Elevator* m_elevator;
     int stage;
     double currentHeight = 11;
+    bool goingUp;
     
     const int lowStageHeight = 10; //height inches
     const int midStageHeight = 36;

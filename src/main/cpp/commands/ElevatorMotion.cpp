@@ -8,6 +8,7 @@ ElevatorMotion::ElevatorMotion(Elevator* elevator, bool dir, double thr) : m_ele
 
 void ElevatorMotion::Initialize() {
     this->m_elevator->stop();
+    this->m_elevator->resetEncoder();
 }
 
 void ElevatorMotion::Execute() {
@@ -24,13 +25,6 @@ void ElevatorMotion::End(bool interrupted) {
 }
 
 bool ElevatorMotion::IsFinished() {
-    if (direction) {
-         this->m_elevator->setCurrentHeight(this->m_elevator->getCurrentHeight() + 
-                                            this->m_elevator->getElevatorDistance());
-    }
-    else {
-        this->m_elevator->setCurrentHeight(this->m_elevator->getCurrentHeight() - 
-                                           this->m_elevator->getElevatorDistance());
-    }
+    this->m_elevator->setCurrentHeight(this->m_elevator->getCurrentHeight() + this->m_elevator->getElevatorDistance());
     return false;
 }
