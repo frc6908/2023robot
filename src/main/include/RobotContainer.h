@@ -36,6 +36,7 @@
 #include "commands/PIDRotateAngle.h"
 #include "commands/SlowAuto.h"
 #include "commands/StationaryAuto.h"
+#include "commands/BottomAuton.h"
 
 #include <frc/Joystick.h>
 #include <frc2/command/button/JoystickButton.h>
@@ -85,6 +86,7 @@ class RobotContainer {
   StationaryAuto m_stationaryauto{&m_drivetrain};
   SlowAuto m_slowauto{&m_drivetrain};
   GyroAuto m_gyroauto{&m_drivetrain};
+  BottomAuton m_bottomauton{&m_drivetrain};
 
   // chooser for autonomous routines
   frc::SendableChooser<frc2::Command*> m_chooser;
