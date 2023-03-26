@@ -14,7 +14,7 @@ void SlowAuto::Initialize() {
 }
 
 void SlowAuto::Execute() {
-    if(t <= 150) {
+    if(t <= 100) {
         this->m_drivetrain->setDriveMotors(-0.4, -0.4);
     }
     else {
